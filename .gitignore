@@ -1,0 +1,13 @@
+#### `.gitignore`
+
+# SVN directories
+.svn
+
+# osx noise
+.DS_Store
+*.pbxuser
+profile
+
+Thumbs.db
+
+demo-test/*
