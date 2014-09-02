@@ -63,24 +63,27 @@
            throw new Error("section must be Array")
         }
 
-        $(window).bind('mousewheel DOMMouseScroll', function(event){
-                // event.stopImmediatePropagation();
-                // event.stopPropagation();
-                // event.preventDefault();
 
-                var delta = parseInt(event.originalEvent.wheelDelta || -event.originalEvent.detail);
-                // console.log("i  > "+event.originalEvent.wheelDelta +" => "+ event.originalEvent.detail)
+        $(document).on('mousewheel', function(event) {
 
-                if (event.originalEvent.wheelDelta > 0 || event.originalEvent.detail < 0) {
+            // console.log(event.deltaX, event.deltaY, event.deltaFactor);
+
+                var delta = event.deltaY
+            
+                if (delta > 0 ) {
                     mousewheelTouch(-1)
-                    event.preventDefault();
                 }
                 else {
                     mousewheelTouch(1)
-                    event.preventDefault();
                 }
+                // event.stopImmediatePropagation();
+                event.stopPropagation();
+                event.preventDefault();
+
+            
         });
 
+        
 
         o.section.map(function(item){
             
@@ -253,26 +256,87 @@
         $.fn.onePageScrollAnimation.instance =  {gotoSection:_gotoSection}
     }
 
-    //IE console fix
-    if (!window.console) {var console = {};}
-    if (!console.log) {console.log = function() {};} 
-
-
 
     $.onePageScrollAnimation = $.fn.onePageScrollAnimation;
 
 })(jQuery, window, document);
 
 
-//Fix FF bug?
-$(window).bind('mousewheel DOMMouseScroll', function(event){
-                // event.stopImmediatePropagation();
-                // event.stopPropagation();
-                // event.preventDefault();
-                
-                // var delta = parseInt(event.originalEvent.wheelDelta || -event.originalEvent.detail);
 
-                // console.log("d  > "+event.originalEvent.wheelDelta +" => "+ event.originalEvent.detail)
-               
-        });
+
+    //IE console fix
+    if (!window.console) {var console = {};}
+    if (!console.log) {console.log = function() {};} 
+
+
+
+
+
+    // Add ECMA262-5 Array methods if not supported natively
+    //
+    if (!('indexOf' in Array.prototype)) {
+        Array.prototype.indexOf= function(find, i /*opt*/) {
+            if (i===undefined) i= 0;
+            if (i<0) i+= this.length;
+            if (i<0) i= 0;
+            for (var n= this.length; i<n; i++)
+                if (i in this && this[i]===find)
+                    return i;
+            return -1;
+        };
+    }
+    if (!('lastIndexOf' in Array.prototype)) {
+        Array.prototype.lastIndexOf= function(find, i /*opt*/) {
+            if (i===undefined) i= this.length-1;
+            if (i<0) i+= this.length;
+            if (i>this.length-1) i= this.length-1;
+            for (i++; i-->0;) /* i++ because from-argument is sadly inclusive */
+                if (i in this && this[i]===find)
+                    return i;
+            return -1;
+        };
+    }
+    if (!('forEach' in Array.prototype)) {
+        Array.prototype.forEach= function(action, that /*opt*/) {
+            for (var i= 0, n= this.length; i<n; i++)
+                if (i in this)
+                    action.call(that, this[i], i, this);
+        };
+    }
+    if (!('map' in Array.prototype)) {
+        Array.prototype.map= function(mapper, that /*opt*/) {
+            var other= new Array(this.length);
+            for (var i= 0, n= this.length; i<n; i++)
+                if (i in this)
+                    other[i]= mapper.call(that, this[i], i, this);
+            return other;
+        };
+    }
+    if (!('filter' in Array.prototype)) {
+        Array.prototype.filter= function(filter, that /*opt*/) {
+            var other= [], v;
+            for (var i=0, n= this.length; i<n; i++)
+                if (i in this && filter.call(that, v= this[i], i, this))
+                    other.push(v);
+            return other;
+        };
+    }
+    if (!('every' in Array.prototype)) {
+        Array.prototype.every= function(tester, that /*opt*/) {
+            for (var i= 0, n= this.length; i<n; i++)
+                if (i in this && !tester.call(that, this[i], i, this))
+                    return false;
+            return true;
+        };
+    }
+    if (!('some' in Array.prototype)) {
+        Array.prototype.some= function(tester, that /*opt*/) {
+            for (var i= 0, n= this.length; i<n; i++)
+                if (i in this && tester.call(that, this[i], i, this))
+                    return true;
+            return false;
+        };
+    }
+
+
 
