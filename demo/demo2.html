@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>jquery.onepage-scroll-animation and use Jarallax</title>
+<link rel="stylesheet" href="css/style.css">
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="scripts/jquery.onepage-scroll-animation.min.js"></script>
+
+<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script src="http://jarallax.com/download/jarallax-0.2.3b.js"></script>
+
+
+<script>
+
+$(document).ready(function() {
+  
+
+  var osa = $.onePageScrollAnimation({ 
+    section                 : [
+
+                                    {id:"section1"   , px:0 },
+                                    {id:"section2"   , px:900 },
+                                    {id:"section3"   , px:1980 },
+                                    {id:"section4"   , px:2800 }
+                                    ],
+        useNear                 : true,
+        near                    : 100,     
+        onLastAutoToBottom      : true 
+      })
+  
+  
+  $(".onepage-pagination li a").click(function (){
+        var page_index = $(this).data("index");
+        osa.gotoSection("section" + page_index)
+  })
+
+
+
+//Jarallax 
+var jarallax = new Jarallax();
+var animation = jarallax.addAnimation('#lamb1',[{progress:'0%',  top:'20px', opacity:'1' },
+                                                {progress:'15%', top:'700px' , opacity:'1'},
+                                                {progress:'30%', top:'1400px', opacity:'0'}]);
+                        
+
+
+
+});
+
+
+</script>
+</head>
+
+<body>
+<ul class="onepage-pagination">
+<li><a data-index="1" href="#1" class=""></a></li>
+<li><a data-index="2" href="#2" class=""></a></li>
+<li><a data-index="3" href="#3" class=""></a></li>
+<li><a data-index="4" href="#4" class=""></a></li>
+</ul>
+
+jquery.onepage-scroll-animation and use Jarallax
+<br>
+
+<div class="ee ee-img">
+ <img id="lamb1" src="./images/lamb-a2.min.png" >
+</div>
+<div class="ee ee-s"></div>
+    <img src="./images/101B.jpg">
+<div class="ee ee-s"></div>
+    <img src="./images/101.jpg">
+<div class="ee ee-s"></div>
+<div class="ee ee-img">
+    <img id="lamb2" src="./images/lamb-a1.min.png" >
+</div>
+
+
+
+</body></html>
