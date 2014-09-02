@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>jquery.onepage-scroll-animation</title>
+<link rel="stylesheet" href="css/style.css">
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="js/jquery.onepage-scroll-animation.js"></script>
+<script type="text/javascript"></script>
+</head>
+<script type="text/javascript"
+
+<script>
+
+$(document).ready(function() {
+  
+
+  var osa = $.onePageScrollAnimation({ 
+    section                 : [
+
+                                    {id:"section1"   , px:0 },
+                                    {id:"section2"   , px:900 },
+                                    {id:"section3"   , px:1980 },                                     
+                                    {id:"section4"   , px:2800 }
+                                    ],
+        useNear                 : true,
+        near                    : 100,     
+        onLastAutoToBottom      : true 
+      })
+
+
+
+  $(".onepage-pagination li a").click(function (){
+        var page_index = $(this).data("index");
+        osa.gotoSection("section" + page_index)
+  })
+
+
+});
+</script>
+
+
+<body>
+<ul class="onepage-pagination">
+<li><a data-index="1" href="#1" class=""></a></li>
+<li><a data-index="2" href="#2" class=""></a></li>
+<li><a data-index="3" href="#3" class=""></a></li>
+<li><a data-index="4" href="#4" class=""></a></li>
+</ul>
+
+jquery.onepage-scroll-animation
+<br>
+
+<div class="ee ee-img">
+ <img src="./images/lamb-a2.min.png" style="margin-top:20px;">
+</div>
+<div class="ee ee-s"></div>
+    <img src="./images/101B.jpg">
+<div class="ee ee-s"></div>
+    <img src="./images/101.jpg">
+<div class="ee ee-s"></div>
+<div class="ee ee-img">
+    <img src="./images/lamb-a1.min.png" >
+</div>
+
+
+
+</body></html>
