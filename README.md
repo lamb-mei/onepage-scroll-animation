@@ -5,7 +5,7 @@ easy scroll up , down animation on jQuery
 簡易的 Onepage 動畫 的 jQuery 套件
 
 
-Demo (http://lamb-mei.github.io/onepage-scroll-animation/)
+GitHub Page (http://lamb-mei.github.io/onepage-scroll-animation/)
 
 
 
@@ -37,7 +37,7 @@ section              	   : [
 
                                 {id:"section1"   , px:0 },
                                 {id:"section2"   , px:900 },
-                                {id:"section3"   , px:1980 },                                     
+                                {id:"section3"   , px:1980 },
                                 {id:"section4"   , px:2800 }
                            ]
   })
@@ -51,7 +51,7 @@ section          	       : [
 
                                 {id:"section1"   , px:0 },
                                 {id:"section2"   , px:900 },
-                                {id:"section3"   , px:1980 },                                     
+                                {id:"section3"   , px:1980 },
                                 {id:"section4"   , px:2800 }
                            ],
 	useNear                 : true,			//啟用容許距離 	(default: false)
@@ -100,7 +100,11 @@ osa.gotoSection("section2" , 1000 , "swing")
 
 ## Demo
 
-<a href="http://lamb-mei.github.io/onepage-scroll-animation/" target="_blank">onepage-scroll-animation demo</a> for more style and feature examples.
+Demo1 (http://lamb-mei.github.io/onepage-scroll-animation/demo/demo1.html)
+
+Demo2 use with Jarallax (http://lamb-mei.github.io/onepage-scroll-animation/demo/demo2.html)
+
+
 
 
 
