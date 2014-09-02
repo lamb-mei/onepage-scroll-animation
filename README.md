@@ -20,9 +20,10 @@ What feature in `onepage-scroll-animation`:
 
 
 
-## Depends
+## Depends 相依套件
 
   - jQuery 
+  - jquery-mousewheel (https://github.com/brandonaaron/jquery-mousewheel)
 
 
 ## How to use
