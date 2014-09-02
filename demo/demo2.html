@@ -6,12 +6,11 @@
 <title>jquery.onepage-scroll-animation and use Jarallax</title>
 <link rel="stylesheet" href="css/style.css">
 <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
-<script src="js/jquery.onepage-scroll-animation.js"></script>
-<script src="scripts/jarallax-0.2.2.js"></script>
+<script src="scripts/jquery.onepage-scroll-animation.min.js"></script>
 
-<script type="text/javascript"></script>
-</head>
-<script type="text/javascript"
+<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script src="http://jarallax.com/download/jarallax-0.2.3b.js"></script>
+
 
 <script>
 
@@ -23,7 +22,7 @@ $(document).ready(function() {
 
                                     {id:"section1"   , px:0 },
                                     {id:"section2"   , px:900 },
-                                    {id:"section3"   , px:1980 },                                     
+                                    {id:"section3"   , px:1980 },
                                     {id:"section4"   , px:2800 }
                                     ],
         useNear                 : true,
@@ -38,34 +37,21 @@ $(document).ready(function() {
   })
 
 
-//----------
 
-  // jarallax.addAnimation('#lamb1',[{progress: "0%", top:"20px"}, {progress: "30%", top: "150px"}]);
-
+//Jarallax 
 var jarallax = new Jarallax();
 var animation = jarallax.addAnimation('#lamb1',[{progress:'0%',  top:'20px', opacity:'1' },
                                                 {progress:'15%', top:'700px' , opacity:'1'},
                                                 {progress:'30%', top:'1400px', opacity:'0'}]);
                         
-// jarallax.cloneAnimation('#slide2',{progress:'+10'}, animation);
-// jarallax.cloneAnimation('#slide3',{progress:'+20'}, animation);
-// jarallax.cloneAnimation('#slide4',{progress:'+30'}, animation);
-
-
 
 
 
 });
 
-function getPer(){
-    var max_scrollTop = $(document).height() - $(window).height()
-    var per = $("body").scrollTop() / max_scrollTop
-    return per
-
-}
 
 </script>
-
+</head>
 
 <body>
 <ul class="onepage-pagination">
