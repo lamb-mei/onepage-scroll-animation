@@ -1,3 +1,10 @@
+/*!
+ * jquery.onepage-scroll-animation v1.0
+ * Url: https://github.com/lamb-mei/onepage-scroll-animation
+ * Copyright (c) lamb-mei — http://lamb-mei.com
+ * License: MIT
+ */
+
 ;(function ($, window, document) {
     'use strict';
 
